@@ -17,4 +17,10 @@ defmodule PeopleClassifyTest do
                       |> SimpleBayes.classify_one("funny")
     assert someone_funny == :anton
   end
+
+  test "it knows heike is funny too" do
+    funny_people = PeopleClassify.trained
+                    |> SimpleBayes.classify("funny")
+    assert (funny_people[:heike]) != nil
+  end
 end
