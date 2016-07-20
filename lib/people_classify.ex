@@ -1,9 +1,10 @@
 defmodule PeopleClassify do
   import SimpleBayes
 
-  def trained_for_josi do
+  def trained do
     machine = SimpleBayes.init
       |> SimpleBayes.train(:josi,"sweet")
+      |> SimpleBayes.train(:anton, "funny")
     machine
   end
 end

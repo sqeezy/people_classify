@@ -7,8 +7,14 @@ defmodule PeopleClassifyTest do
   end
 
   test "it knows josi is sweet" do
-    someone_sweet = PeopleClassify.trained_for_josi
+    someone_sweet = PeopleClassify.trained
                           |> SimpleBayes.classify_one("sweet")
     assert someone_sweet == :josi
+  end
+
+  test "it knows anton is funny" do
+    someone_funny = PeopleClassify.trained
+                      |> SimpleBayes.classify_one("funny")
+    assert someone_funny == :anton
   end
 end
